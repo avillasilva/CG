@@ -14,3 +14,10 @@ void putPixel(int x, int y, color c) {
 	FBptr[x*4 + y*4*IMAGE_WIDTH + 3] = c[3];
 }
 ```
+Cada pixel é representado por quatro bytes onde cada byte especifíca uma intensidade de uma das cores RGBA nesta ordem. Como esses bytes estão armazenados linearmente na memória de vídeo, cada pixel  está disposto quatro posições a frente do pixel anterior. A posição inicial de cada pixel é dada pela função Offset = 4*x + 4*y*w onde x e y são as coordenadas do pixel e w é o comprmento da tela.
+
+
+### Rasterização de uma linha:
+Para rasterizar linhas, utilizamos o algoritmo de Bresenham generalizando-o para todos octantes do plano cartesiano.
+
+#### Como foi feito a generalização:
