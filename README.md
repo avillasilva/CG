@@ -62,5 +62,64 @@ Podemos observar que se invertermos o ponto inicial e ponto final de retas que s
 
 Em sua Forma final, a função drawLine ficou assim:
 
+```C++
+void drawLine(pixel i,pixel f, color c) {
+	// Coordenadas iniciais
+	int x = i.x;
+	int y = i.y;
+	//Deslocamentos
+	int dx = f.x - i.x;
+	int dy = f.y - i.y;
+	
+	if(abs(dx) > abs(dy)){
+		//1 Octante
+		if(dx > 0 && dy > 0) {
+			int d = 2*dy - dx;
+			int e_inc = 2*dy;
+			int ne_inc = 2*(dy - dx);
+			
+			putPixel(i,c);			
+			while(x < f.x){
+				if(d <= 0){
+					x++;
+					d += e_inc;			
+				}
+				else{
+					x++;
+					y++;
+					d += ne_inc;			
+				}
+				putPixel(x,y,c);
+			}
+		}
+
+		//4 e 5 Octantes 
+		else if(dx < 0) {
+			drawLine(f,i,c);
+		}
+
+		//8 Octante e Linhas Horizontais
+		else {
+			int d = 2*dy + dx;
+			int e_inc = 2*dy;
+			int se_inc = 2*(dy + dx);
+			
+			putPixel(i,c);			
+			while(x < f.x){
+				if(d <= 0){
+					x++;
+					y--;
+					d += se_inc;			
+				}
+				else{
+					x++;
+					d += e_inc;			
+				}
+				putPixel(x,y,c);
+			}
+		}
+	}
+```
+
 
 
