@@ -31,6 +31,7 @@ void drawLine(pixel i,pixel f, color c) {
 	//Deslocamentos
 	int dx = f.x - i.x;
 	int dy = f.y - i.y;
+	
 	int d = 2*dy - dx;
 	int e_inc = 2*dy;
 	int ne_inc = 2*(dy - dx);
