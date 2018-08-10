@@ -124,7 +124,7 @@ void drawLine(pixel i,pixel f, color c) {
 
 
 ### Raterização de Trinagulos:
-Para rasterizar essa primitiva, apenas desenhanmos três retas ligando três pontos recebidos como parametro.
+Para rasterizar essa primitiva, apenas desenhamos três retas ligando três pontos recebidos como parametro.
 
 ```C++
 	void drawTriangle(pixel v1,pixel v2, pixel v3, color c) {
@@ -132,4 +132,15 @@ Para rasterizar essa primitiva, apenas desenhanmos três retas ligando três pon
 	drawLine(v1,v3,c);
 	drawLine(v2,v3,c);
 }
+```
+
+### Interpolação de cores:
+A interpolção de cores foi feita a parti de uma nova função que baseada num fator de porcentagem (distancia parcial percorrida entre ponto atual e ponto final divido pela distancia total) que define a intensidade da cor inicial e da cor final num dado ponto.
+
+```C++
+void interpolar(float per,color atual, color inicial, color fin) {
+	for(int i = 0; i < 4; i++) {
+		atual[i] = (per * inicial[i]) + ((1-per) * fin[i]);	
+	}
+} 
 ```
