@@ -21,6 +21,26 @@ Cada pixel é representado por quatro bytes onde cada byte especifíca uma inten
 Para rasterizar linhas, utilizamos o algoritmo de Bresenham generalizando-o para todos octantes do plano cartesiano.
 
 #### Algoritmo de Bresebam:
+Esse algoritmo nos da uma função incremental para a rasterização de uma reta mas em sua forma natural ele é limitado ao primeiro octante do plano cartesiano(retas com inclinação entre 0 e 1). Ele é implementado em codigo da seguinte forma:
 
+'''C++
+int d = 2*dy - dx;
+int e_inc = 2*dy;
+int ne_inc = 2*(dy - dx);
+			
+putPixel(i,c);			
+while(x < f.x){
+	if(d <= 0){
+		x++;
+		d += e_inc;			
+	}
+	else{
+		x++;
+		y++;
+		d += ne_inc;			
+	}
+	putPixel(x,y,c);
+}
+'''
 
 #### Como foi feito a generalização:
