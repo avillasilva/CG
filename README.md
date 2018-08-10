@@ -54,6 +54,9 @@ void drawLine(pixel i,pixel f, color c) {
 
 #### Como foi feito a generalização:
 
-Para podermos desenhar retas em todos os 8 quadrantes, precisamos fazer algumas observações 
+Para podermos desenhar retas em todos os 8 quadrantes, precisamos fazer algumas observações:
+
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/Sem%20t%C3%ADtulo.png "octantes")
+
+
 
