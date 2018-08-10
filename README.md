@@ -23,7 +23,7 @@ Para rasterizar linhas, utilizamos o algoritmo de Bresenham generalizando-o para
 #### Algoritmo de Bresebam:
 Esse algoritmo nos da uma função incremental para a rasterização de uma reta mas em sua forma natural ele é limitado ao primeiro octante do plano cartesiano(retas com inclinação entre 0 e 1). Ele é implementado em codigo da seguinte forma:
 
-'''C++
+```C++
 int d = 2*dy - dx;
 int e_inc = 2*dy;
 int ne_inc = 2*(dy - dx);
@@ -41,6 +41,6 @@ while(x < f.x){
 	}
 	putPixel(x,y,c);
 }
-'''
+```
 
 #### Como foi feito a generalização:
