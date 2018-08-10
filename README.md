@@ -20,4 +20,7 @@ Cada pixel é representado por quatro bytes onde cada byte especifíca uma inten
 ### Rasterização de uma linha:
 Para rasterizar linhas, utilizamos o algoritmo de Bresenham generalizando-o para todos octantes do plano cartesiano.
 
+#### Algoritmo de Bresebam:
+
+
 #### Como foi feito a generalização:
