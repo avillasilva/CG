@@ -14,7 +14,7 @@ void putPixel(int x, int y, color c) {
 	FBptr[x*4 + y*4*IMAGE_WIDTH + 3] = c[3];
 }
 ```
-Cada pixel é representado por quatro bytes onde cada byte especifíca uma intensidade de uma das cores RGBA nesta ordem. Como esses bytes estão armazenados linearmente na memória de vídeo, cada pixel  está disposto quatro posições a frente do pixel anterior. A posição inicial de cada pixel é dada pela função Offset = 4*x + 4*y*w onde x e y são as coordenadas do pixel e w é o comprmento da tela.
+Cada pixel é representado por quatro bytes onde cada byte especifíca uma intensidade de uma das cores RGBA nesta ordem. Como esses bytes estão armazenados linearmente na memória de vídeo, cada pixel  está disposto quatro posições a frente do pixel anterior. A posição inicial de cada pixel é dada pela função Offset = 4*x + 4*y*w onde x e y são as coordenadas do pixel e w é o comprimento da tela.
 
 
 ### Rasterização de uma linha:
@@ -64,6 +64,7 @@ Em sua Forma final, a função drawLine ficou assim:
 
 ```C++
 void drawLine(pixel i,pixel f, color c) {
+	void drawLine(pixel i,pixel f, color c) {
 	// Coordenadas iniciais
 	int x = i.x;
 	int y = i.y;
@@ -77,7 +78,6 @@ void drawLine(pixel i,pixel f, color c) {
 			int d = 2*dy - dx;
 			int e_inc = 2*dy;
 			int ne_inc = 2*(dy - dx);
-			
 			putPixel(i,c);			
 			while(x < f.x){
 				if(d <= 0){
@@ -92,18 +92,15 @@ void drawLine(pixel i,pixel f, color c) {
 				putPixel(x,y,c);
 			}
 		}
-
 		//4 e 5 Octantes 
 		else if(dx < 0) {
 			drawLine(f,i,c);
 		}
-
 		//8 Octante e Linhas Horizontais
 		else {
 			int d = 2*dy + dx;
 			int e_inc = 2*dy;
 			int se_inc = 2*(dy + dx);
-			
 			putPixel(i,c);			
 			while(x < f.x){
 				if(d <= 0){
@@ -119,6 +116,51 @@ void drawLine(pixel i,pixel f, color c) {
 			}
 		}
 	}
+	else {
+		//7 Octante
+		if(dx >0 && dy < 0) {
+			int d = dy + 2*dx;
+			int s_inc =  2*dx;
+			int se_inc = 2*(dy + dx);
+			putPixel(x,y,c);
+			while( y >= f.y){
+				if(d <= 0){
+					y--;
+					d += s_inc;
+				}
+				else {
+					x++;
+					y--;
+					d += se_inc;
+				}
+				putPixel(x,y,c);
+			}
+		{
+		//3 e 6 Octantes
+		else if(dx < 0){
+			drawLine(f,i,c);
+		}
+		//2 Octante
+		else {
+			int d = dy + 2*-dx;
+			int n_inc =  2*-dx;
+			int ne_inc = 2*(dy - dx);
+			putPixel(x,y,c);
+			while(y <= f.y){
+				if(d <= 0){
+					y++;
+					x++;
+					d += ne_inc;
+				}
+				else {
+					y++;
+					d += n_inc;
+				}
+				putPixel(x,y,c);
+			}	
+		}
+	} 
+}
 ```
 
 
