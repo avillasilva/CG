@@ -196,8 +196,7 @@ putPixel(x,y,atual);
 
 ### Resultados:
 
-![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/retas.png "Retas")
-![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/triangulo.png "Triângulo")
-![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/retasinter.png "Retas interpoladas")
+![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/retas.png "Retas")![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/triangulo.png "Triângulo")
+![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/reatasinter.png "Retas interpoladas")
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/triangulointer.png "Triângulo interpolado")
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/demo.png "Demostração")
