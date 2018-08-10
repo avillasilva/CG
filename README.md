@@ -123,3 +123,13 @@ void drawLine(pixel i,pixel f, color c) {
 
 
 
+###Raterização de Trinagulos:
+Para rasterizar essa primitiva, apenas desenhanmos três retas ligando 3 verteces dados.
+
+```C++
+	void drawTriangle(pixel v1,pixel v2, pixel v3, color c) {
+	drawLine(v1,v2,c);
+	drawLine(v1,v3,c);
+	drawLine(v2,v3,c);
+}
+```
