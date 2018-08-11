@@ -20,7 +20,7 @@ Cada pixel é representado por quatro bytes onde cada byte especifíca uma inten
 ### Rasterização de uma linha:
 Para rasterizar linhas, utilizamos o algoritmo de Bresenham generalizando-o para todos octantes do plano cartesiano.
 
-#### Algoritmo de Bresebam:
+#### Algoritmo de Breseham:
 Esse algoritmo nos da uma função incremental para a rasterização de uma reta, mas em sua forma natural ele é limitado ao primeiro octante do plano cartesiano(retas com inclinação entre 0 e 1). Ele é implementado em código da seguinte forma:
 
 ```C++
@@ -194,6 +194,7 @@ putPixel(x,y,atual);
 ```
 
 ### Resultados:
+Os resultados desse projeto podem ser vistos nas imagens abaixo. Os maiores desafios desse projeto foram o desenvolvimento matematico da generalização do algoritmo de Breseham e o algoritmo de interpolação de cores.
 
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/retas.png "Retas")
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/triangulo.png "Triângulo")
