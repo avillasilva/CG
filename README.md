@@ -56,7 +56,7 @@ void drawLine(pixel i,pixel f, color c) {
 
 Para podermos desenhar retas em todos os octantes, precisamos fazer algumas observações:
 
-![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/Sem%20t%C3%ADtulo.png "octantes")
+![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/Octantes.png "octantes")
 
 Podemos observar que se invertermos o ponto inicial e ponto final de retas que se encontram no 5° octante teremos retas que se enquadram no 1° octante. Isso também ocorre entre o 3° e 7°, 4° e 8° , 6° e 2° octantes. Devido a isso basta implementar os casos de retas nos 1°, 2°, 7° e 8° octantes, todos os outros casos podem ser feitos por espelhamento.
 
@@ -64,7 +64,6 @@ Em sua Forma final, a função drawLine ficou assim:
 
 ```C++
 void drawLine(pixel i,pixel f, color c) {
-	void drawLine(pixel i,pixel f, color c) {
 	// Coordenadas iniciais
 	int x = i.x;
 	int y = i.y;
@@ -118,12 +117,12 @@ void drawLine(pixel i,pixel f, color c) {
 	}
 	else {
 		//7 Octante
-		if(dx >0 && dy < 0) {
+		if(dx > 0 && dy < 0) {
 			int d = dy + 2*dx;
 			int s_inc =  2*dx;
 			int se_inc = 2*(dy + dx);
 			putPixel(x,y,c);
-			while( y >= f.y){
+			while(y > f.y){
 				if(d <= 0){
 					y--;
 					d += s_inc;
@@ -135,18 +134,19 @@ void drawLine(pixel i,pixel f, color c) {
 				}
 				putPixel(x,y,c);
 			}
-		{
+		}
 		//3 e 6 Octantes
-		else if(dx < 0){
+		else if(dx < 0 || (i.x == f.x && i.y > f.y)){
 			drawLine(f,i,c);
 		}
-		//2 Octante
+		//2 Octante e linah verticais
 		else {
 			int d = dy + 2*-dx;
 			int n_inc =  2*-dx;
 			int ne_inc = 2*(dy - dx);
+			
 			putPixel(x,y,c);
-			while(y <= f.y){
+			while(y < f.y){
 				if(d <= 0){
 					y++;
 					x++;
@@ -159,14 +159,13 @@ void drawLine(pixel i,pixel f, color c) {
 				putPixel(x,y,c);
 			}	
 		}
+
 	} 
 }
 ```
 
-
-
 ### Raterização de Trinagulos:
-Para rasterizar essa primitiva, apenas desenhamos três retas ligando três pontos recebidos como parametro.
+Para rasterizar essa primitiva, apenas desenhamos três retas ligando três pontos recebidos como parametro com a cor requisitada.
 
 ```C++
 	void drawTriangle(pixel v1,pixel v2, pixel v3, color c) {
@@ -196,7 +195,8 @@ putPixel(x,y,atual);
 
 ### Resultados:
 
-![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/retas.png "Retas")![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/triangulo.png "Triângulo")
+![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/retas.png "Retas")
+![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/triangulo.png "Triângulo")
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/reatasinter.png "Retas interpoladas")
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/triangulointer.png "Triângulo interpolado")
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/demo.png "Demostração")
