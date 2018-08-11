@@ -100,13 +100,13 @@ void drawLine(pixel i,pixel f, color c) {
 
 	else {
 		//7 Octante
-		if(dx >0 && dy < 0) {
+		if(dx > 0 && dy < 0) {
 			int d = dy + 2*dx;
 			int s_inc =  2*dx;
 			int se_inc = 2*(dy + dx);
 			
 			putPixel(x,y,c);
-			while( y >= f.y){
+			while(y > f.y){
 				if(d <= 0){
 					y--;
 					d += s_inc;
@@ -121,18 +121,18 @@ void drawLine(pixel i,pixel f, color c) {
 		}
 
 		//3 e 6 Octantes
-		else if(dx < 0){
+		else if(dx < 0 || (i.x == f.x && i.y > f.y)){
 			drawLine(f,i,c);
 		}
 
-		//2 Octante
+		//2 Octante e linah verticais
 		else {
 			int d = dy + 2*-dx;
 			int n_inc =  2*-dx;
 			int ne_inc = 2*(dy - dx);
 			
 			putPixel(x,y,c);
-			while(y <= f.y){
+			while(y < f.y){
 				if(d <= 0){
 					y++;
 					x++;
@@ -189,7 +189,7 @@ void drawLineInterpolado(pixel i, pixel f, color cInicial, color cFinal) {
 		}
 		
 		//4 e 5 octante
-		else if(/*(dx < 0 && dy > 0) || (dx < 0 && dy < 0)*/ dx < 0) {
+		else if(dx < 0) {
 			drawLineInterpolado(f,i,cFinal,cInicial);
 		}
 
@@ -221,13 +221,13 @@ void drawLineInterpolado(pixel i, pixel f, color cInicial, color cFinal) {
 
 	else {
 		//7 Octante
-		if(dx >0 && dy < 0) {
+		if(dx > 0 && dy < 0) {
 			int d = dy + 2*dx;
 			int s_inc =  2*dx;
 			int se_inc = 2*(dy + dx);
 			
 			putPixel(i,cInicial);
-			while( y >= f.y){
+			while( y > f.y){
 				if(d <= 0){
 					y--;
 					d += s_inc;
@@ -247,7 +247,7 @@ void drawLineInterpolado(pixel i, pixel f, color cInicial, color cFinal) {
 		}
 
 		//3 e 6 Octante
-		else if(/*(dx < 0 && dy > 0) || (dx < 0 && dy < 0)*/ dx < 0){
+		else if(dx < 0 || (i.x == f.x && i.y > f.y)){
 			drawLineInterpolado(f,i,cFinal,cInicial);
 		}
 
@@ -258,7 +258,7 @@ void drawLineInterpolado(pixel i, pixel f, color cInicial, color cFinal) {
 			int ne_inc = 2*(dy - dx);
 			
 			putPixel(i,cInicial);
-			while(y <= f.y){
+			while(y < f.y){
 				if(d <= 0){
 					x++;
 					y++;
@@ -295,8 +295,7 @@ void demo() {
 	pixel i;
 	pixel m;
 	pixel f;
-
-
+	
 	i.x = 256;
 	i.y = 156;
 	m.x = 156;
@@ -329,7 +328,6 @@ void demo() {
 			d++;		
 		} 
 	}
-	
 
 	pixel aux2;
 	aux2.x = 511;
@@ -338,42 +336,36 @@ void demo() {
 		color c;
 		switch(s) {
 			case 0:
-			//color c = {254,2,49,255};
 			c[0] = 254;
 			c[1] = 2;
 			c[2] = 49;
 			c[3] = 255;
 			break;	
 			case 1:
-			//color c = {254,148,13,255};
 			c[0] = 254;
 			c[1] = 148;
 			c[2] = 13;
 			c[3] = 255;
 			break;
 			case 2:
-			//color c = {251,245,11,255};
 			c[0] = 251;
 			c[1] = 245;
 			c[2] = 11;
 			c[3] = 255;
 			break;
 			case 3:
-			//color c = {88,253,101,255};
 			c[0] = 88;
 			c[1] = 253;
 			c[2] = 101;
 			c[3] = 255;
 			break;
 			case 4:
-			//color c = {46,184,255,255};
 			c[0] = 46;
 			c[1] = 184;
 			c[2] = 255;
 			c[3] = 255;
 			break;
 			case 5:
-			//color c = {180,147,251,255};
 			c[0] = 180;
 			c[1] = 147;
 			c[2] = 251;
@@ -397,13 +389,4 @@ void demo() {
 
 
 
-
-
-
-
-
-
-
-
 #endif // _MYGL_H_
-
