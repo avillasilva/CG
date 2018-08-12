@@ -201,3 +201,6 @@ Os resultados desse projeto podem ser vistos nas imagens abaixo. Os maiores desa
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/reatasinter.png "Retas interpoladas")
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/triangulointer.png "Triângulo interpolado")
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/demo.png "Demostração")
+
+### Bibliografia:
+https://medium.com/@biancaamoriim/rasteriza%C3%A7%C3%A3o-de-primitivas-em-opengl-8680a76fdda5
