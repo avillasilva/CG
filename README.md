@@ -185,7 +185,7 @@ void interpolar(float per,color atual, color inicial, color fin) {
 } 
 ```
 
-Esta função é chamada antes do posicionamento de cada pixel para definir a cor deste pixel;
+Esta função é chamada dentro da função drawLine antes do posicionamento de cada pixel para definir a cor deste pixel;
 ```C++
 ...
 interpolar(per,atual,cInicial,cFinal);
