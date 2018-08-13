@@ -176,7 +176,7 @@ Para rasterizar essa primitiva, apenas desenhamos três retas ligando três pont
 ```
 
 ### Interpolação de cores:
-A interpolção de cores foi feita a parti de uma nova função que baseada num fator de porcentagem (distancia parcial percorrida entre ponto atual e ponto final divido pela distancia total) que define a intensidade da cor inicial e da cor final num dado ponto.
+A interpolção de cores foi feita a parti de uma nova função que define a intensidade da cor inicial e da cor final num dado ponto  baseada num fator de porcentagem (distancia parcial percorrida entre ponto atual e ponto final divido pela distancia total).
 ```C++
 void interpolar(float per,color atual, color inicial, color fin) {
 	for(int i = 0; i < 4; i++) {
