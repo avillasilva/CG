@@ -139,7 +139,7 @@ void drawLine(pixel i,pixel f, color c) {
 		else if(dx < 0 || (i.x == f.x && i.y > f.y)){
 			drawLine(f,i,c);
 		}
-		//2 Octante e linah verticais
+		//2 Octante e linhas verticais
 		else {
 			int d = dy + 2*-dx;
 			int n_inc =  2*-dx;
@@ -164,7 +164,7 @@ void drawLine(pixel i,pixel f, color c) {
 }
 ```
 
-### Raterização de Trinagulos:
+### Raterização de Triângulos:
 Para rasterizar essa primitiva, apenas desenhamos três retas ligando três pontos recebidos como parametro com a cor requisitada.
 
 ```C++
@@ -203,4 +203,4 @@ Os resultados desse projeto podem ser vistos nas imagens abaixo. Os maiores desa
 ![alt text](https://github.com/avillasilva/CG/raw/master/Fotos/demo.png "Demostração")
 
 ### Bibliografia:
-https://medium.com/@biancaamoriim/rasteriza%C3%A7%C3%A3o-de-primitivas-em-opengl-8680a76fdda5
+[1] https://medium.com/@biancaamoriim/rasteriza%C3%A7%C3%A3o-de-primitivas-em-opengl-8680a76fdda5
